@@ -1,4 +1,4 @@
-#Common Crawler
+# Common Crawler
 
 Super simple Python 3 functions that can scrape the Common Crawl dataset (https://github.com/jpbm/common_crawler)
 
