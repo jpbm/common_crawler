@@ -1,4 +1,4 @@
-# Common Crawler
+#Common Crawler
 
 Super simple Python 3 functions that can scrape the Common Crawl dataset (https://github.com/jpbm/common_crawler)
 
@@ -11,3 +11,6 @@ Search domain (ex. https://www.nytimes.com/section/politics).
 
 # Output:
 List of strings containing common crawl metadata + the scraped HTML file.
+
+# Usage:
+See: common_crawler.ipynb

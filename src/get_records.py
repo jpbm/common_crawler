@@ -39,9 +39,9 @@ def get_entries_gen(domain,index_list=None):
         
         if response.status_code == 200:
             for record in response.content.splitlines():
-                yield record
+                yield json.loads(record)
         else: 
-            print("get_records: Code %s / %s" % (response.status_code,cc_url))
+            print("get_entries: Code %s / %s" % (response.status_code,cc_url))
 
 
 
