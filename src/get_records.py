@@ -27,10 +27,10 @@ def get_entries_gen(domain,index_list=None):
     records [list] 
     """
     
-    # default index list
+    # default index list: full list
     if not index_list:
-        index_list = '2018-13,2018-09,2018-05,2017-51,2017-47,2017-43,2017-39,2017-34,2017-30'.split(',')
-    
+        index_list = download_index_list() 
+
     # yield records
     records = []
     for index in index_list:
@@ -91,3 +91,20 @@ def get_records_gen(domain,index_list=None):
     entries = get_entries_gen(domain,index_list)
     for entry in entries:
         yield download_record(entry)
+
+
+import json
+
+def download_index_list():
+    """
+    Download the full Common Crawl Index list
+    
+    Returns:
+    index_list [list] (ex. ['2018-13','2018-09',...]
+    """
+    """ Common Crawl Indices """
+
+    index_list_url = 'http://index.commoncrawl.org/collinfo.json'
+    
+    return [index['id'].replace('CC-MAIN-','') for index in json.loads(requests.get(index_list_url).content.decode('utf-8'))]
+
